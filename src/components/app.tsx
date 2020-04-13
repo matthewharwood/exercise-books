@@ -2,9 +2,12 @@ import { FunctionalComponent, h } from "preact";
 import { Route, Router, RouterOnChangeArgs } from "preact-router";
 
 import Home from "../routes/home";
-import Profile from "../routes/profile";
-import NotFoundPage from '../routes/notfound';
+import Authors from "../routes/authors";
+import Author from "../routes/author";
+import NotFoundPage from "../routes/notfound";
 import Header from "./header";
+import Serieses from "../routes/serieses";
+import Series from "../routes/series";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -22,9 +25,11 @@ const App: FunctionalComponent = () => {
         <div id="app">
             <Header />
             <Router onChange={handleRoute}>
-                <Route path="/" component={Home} />
-                <Route path="/profile/" component={Profile} user="me" />
-                <Route path="/profile/:user" component={Profile} />
+                <Home path="/" />
+                <Authors path="/authors" />
+                <Author path="/authors/:id" />
+                <Serieses path="/serieses" />
+                <Series path="/serieses/:id" />
                 <NotFoundPage default />
             </Router>
         </div>
