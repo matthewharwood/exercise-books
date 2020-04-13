@@ -2,7 +2,7 @@ import { FunctionalComponent, h } from "preact";
 import { Link } from "preact-router/match";
 import * as style from "./style.css";
 
-const Header: FunctionalComponent = () => {
+const Header: FunctionalComponent<any> = () => {
     return (
         <header class={style.header}>
             <h1>Preact App</h1>

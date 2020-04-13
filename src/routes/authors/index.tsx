@@ -4,7 +4,7 @@ import { Link } from "preact-router";
 import Author from "../author";
 import * as style from "./style.css";
 
-const Authors: FunctionalComponent = () => {
+const Authors: FunctionalComponent<any> = () => {
     return (
         <div>
             <h1>Authors</h1>
