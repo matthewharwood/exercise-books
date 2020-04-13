@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import tailwind from "preact-cli-tailwind";
 
 export default {
     /**
@@ -30,6 +31,8 @@ export default {
             "src",
             "index"
         );
+        console.log(tailwind);
+        config = tailwind(config, env, helpers);
         return config;
     }
 };
