@@ -3,13 +3,13 @@ import { Link } from "preact-router";
 
 import * as style from "./style.css";
 
-const Serieses: FunctionalComponent<any> = () => {
+const Questions: FunctionalComponent<any> = (props: any) => {
     return (
         <div>
-            <h1>Serieses</h1>
-            <Link href="/series/1">Series 1</Link>
+            <h1>Questions</h1>
+            <Link href="/questions/1">Question 1</Link>
         </div>
     );
 };
 
-export default Serieses;
+export default Questions;
