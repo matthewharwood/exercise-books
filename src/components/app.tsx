@@ -1,10 +1,17 @@
 import { FunctionalComponent, h } from "preact";
-import { Route, Router, RouterOnChangeArgs } from "preact-router";
+import { Router, RouterOnChangeArgs } from "preact-router";
 
 import Home from "../routes/home";
-import Profile from "../routes/profile";
-import NotFoundPage from '../routes/notfound';
+import Authors from "../routes/authors";
+import Author from "../routes/author";
+import Serieses from "../routes/serieses";
+import Series from "../routes/series";
+import Books from "../routes/books";
+import Book from "../routes/book";
+import Questions from "../routes/questions";
+import Question from "../routes/question";
 import Header from "./header";
+import NotFoundPage from "../routes/notfound";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -12,7 +19,7 @@ if ((module as any).hot) {
     require("preact/debug");
 }
 
-const App: FunctionalComponent = () => {
+const App: FunctionalComponent<any> = () => {
     let currentUrl: string;
     const handleRoute = (e: RouterOnChangeArgs) => {
         currentUrl = e.url;
@@ -22,9 +29,15 @@ const App: FunctionalComponent = () => {
         <div id="app">
             <Header />
             <Router onChange={handleRoute}>
-                <Route path="/" component={Home} />
-                <Route path="/profile/" component={Profile} user="me" />
-                <Route path="/profile/:user" component={Profile} />
+                <Home path="/" />
+                <Authors path="/authors" />
+                <Author path="/authors/:id" />
+                <Serieses path="/authors/:authorId/serieses" />
+                <Series path="/authors/:authorId/serieses/:id" />
+                <Books path="/authors/:authorId/serieses/:id/books" />
+                <Book path="/authors/:authorId/serieses/:id/books/:id" />
+                <Questions path="/authors/:authorId/serieses/:id/books/:id/questions" />
+                <Question path="/authors/:authorId/serieses/:id/books/:id/questions/:id" />
                 <NotFoundPage default />
             </Router>
         </div>
